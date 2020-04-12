@@ -1,0 +1,32 @@
+service: packaging-lambda
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    slim: true
+
+provider:
+  name: aws
+  runtime: python3.7      #change as per your requirement.
+  stage: ${opt:stage}
+  region: ${opt:region}
+  memorySize: 256      #change as per your requirement.
+
+package:
+  individually: true
+  exclude:
+    - "./**"
+    - node_modules/**
+    - requirements.txt
+  
+functions:
+  function1: ${file(./Resources/function1.yml)}
+  function2: ${file(./Resources/function2.yml)}
+  function3: ${file(./Resources/function3.yml)}
+  function4: ${file(./Resources/function4.yml)}
+  function5: ${file(./Resources/function5.yml)}
+
+
+

@@ -1,0 +1,21 @@
+handler: src/function2.lambda_handler
+package:
+  include:
+    - src/function2.py
+  exclude:
+    - requirements.txt
+name: function2
+events:
+  - http:
+      path: src/function2.py
+      method: post
+      cors: true
+      integration: lambda  
+      request:
+        passThrough: WHEN_NO_MATCH
+        template:
+          application/json: '$input.json("$")'
+          application/x-www-form-urlencoded: '$input.json("$")'
+      response:
+        headers:
+          Access-Control-Allow-Origin: "'*'"
