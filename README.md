@@ -122,7 +122,7 @@ You can see difference in packaging with single requirements.txt file for all la
      function's with single requirements.txt file in root with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function_size_req.png)
 
-     function's with requirements.txt file in root with no module. But separate reuirements.txt file
+     function's with requirements.txt file in root with no module. Also separate reuirements.txt file
      for required function with requests module. 
      Here you can see difference in Code size
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function_size_without_req.png)
@@ -136,7 +136,7 @@ You can see difference in packaging with single requirements.txt file for all la
      function4 with single requirements.txt file in root with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function4_with_req_in_root.png)
 
-     function4 with requirements.txt file in root with no module. But separate reuirements.txt file
+     function4 with requirements.txt file in root with no module. Also separate reuirements.txt file
      for function4 with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/with_req_in_folder.png)
 
