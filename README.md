@@ -49,13 +49,9 @@ Our file structure for project:
         function3.yml
         function4.yml
         function5.yml
-    .gitignore
-    requirements.txt       
+    .gitignore      
     serverless.yml
     .gitlab-ci.yml
-
-  
-**NOTE** Root requirements.txt file is empty, because if we enter any module name then that module will be deploy with all lambda function, which we don't want.
   
 
 **Package  dependencies with requierd functions.**
@@ -70,7 +66,7 @@ Packaging of function1, this function has no third party dependencies required. 
         - requirements.txt
     name: function1
  
-Packaging of function3, this function has third party dependencies included.So, **module** will help you to package function3 with required dependencies.
+Packaging of function3, this function has third party dependencies included. Here **module** will help you to package function3 with required dependencies.
    
     handler: function3.lambda_handler
     module: src/folder2
@@ -122,22 +118,20 @@ You can see difference in packaging with single requirements.txt file for all la
      function's with single requirements.txt file in root with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function_size_req.png)
 
-     function's with requirements.txt file in root with no module. Also separate reuirements.txt file
-     for required function with requests module. 
+     function's with separate reuirements.txt file for required function with requests module. 
      Here you can see difference in Code size
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function_size_without_req.png)
 
      function1 with single requirements.txt file in root with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function1_with_req.png)
 
-     function1 with single requirements.txt file in root without no module
+     function1 without requirements.txt file in root
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function1.png)
 
      function4 with single requirements.txt file in root with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/function4_with_req_in_root.png)
 
-     function4 with requirements.txt file in root with no module. Also separate reuirements.txt file
-     for function4 with requests module
+     function4 with separate reuirements.txt file with requests module
 ![](https://github.com/dharmendranegi/AWS-Lambda-Packaging/blob/master/img/with_req_in_folder.png)
 
 
