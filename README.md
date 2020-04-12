@@ -5,7 +5,6 @@ As you can package your project with different ways in serverless framwork, but
 here we are going to do it using **INCULDE/EXCLUDE** method.
 
 
-
 Pre-request : **AWS account. Git account**.
 
 **Example**: In the following example, you will:
@@ -30,14 +29,17 @@ Pre-request : **AWS account. Git account**.
 
 **Creating a project with some pyhton functions**
 
-Basic file structure for any project:
-    `src
+Our file structure for project:
+
+     src
         folder1
             folder1-a
                 function4.py
+                requirements.txt   # which will include your module names
             function5.py
         folder2
             function3.py
+            requirements.txt       # which will include your module names
         function1.py
         function2.py
     Resources
@@ -47,16 +49,77 @@ Basic file structure for any project:
         function4.yml
         function5.yml
     .gitignore
-    requirements.txt
+    requirements.txt       
     serverless.yml
-    .gitlab-ci.yml`
+    .gitlab-ci.yml
+
+  
+**NOTE** Root requirements.txt file is empty, because if we enter any module name then that module will be deploy with all lambda function, which we don't want.
+  
+
+**Package  dependencies with requierd functions.**
+
+Packaging of function1, this function has no third party dependencies required. (similar for function2)
+
+    handler: src/function1.lambda_handler
+    package:
+      include:
+        - src/function1.py
+      exclude:
+        - requirements.txt
+    name: function1
+ 
+Packaging of function3, this function has third party dependencies included.So, **module** will help you to package function3 with required dependencies.
+   
+    handler: function3.lambda_handler
+    module: src/folder2
+    package:
+      include:
+        - src/folder2/function3.py
+      exclude:
+        - requirements.txt
+    name: function3
+
+
+Packaging of function4, this function has third party dependencies included. Now, module path is changed as per lambda location.
+
+    handler: function4.lambda_handler
+    module: src/folder1/folder1-a
+    package:
+      include:
+        - src/folder1/folder1-a/function4.py
+      exclude:
+        - requirements.txt
+    name: function4
+ 
+
+Packaging of function5, this function has no third party dependencies included. Again, handler path is changed as per lambda location.
+
+    handler: src/folder1/function5.lambda_handler
+    package:
+      include:
+        - src/folder1/function5.py
+      exclude:
+        - requirements.txt
+    name: function5
+
+**Note** Following configuration in serverless.yml file will help to deploy every function independently(can be done on function level).
+    package:
+      individually: true   # will help to deploy every function independently.
+      exclude:              # excluding files which we don't want to include in package, later include in per function level.
+        - "./**"
+        - node_modules/**
+        - requirements.txt
+
+
+Here, as we can see we have few lambda functions which have **requirements.txt** with in the folder and few are not.
+Because those are the function which required extra dependencies.
+
+You can see difference in packaging with single requirements.txt file for all lambda vs separate reuirements.txt file for required function.
 
 
 
 
-
-
-
-
-
+**Deploying your function.**
+git push the changes to your GitLab repository and the GitLab build pipeline will automatically deploy your function.
 
