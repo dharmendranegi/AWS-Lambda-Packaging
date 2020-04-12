@@ -8,8 +8,9 @@ here we are going to do it using **INCULDE/EXCLUDE** method.
 Pre-request : **AWS account. Git account**.
 
 **Example**: In the following example, you will:
-    1.  Package python lambda  with dependencies.
-    2.  Deploy project using Git-Lab CI/CD.
+
+   1.  Package python lambda  with dependencies.
+   2.  Deploy project using Git-Lab CI/CD.
 
 
     
@@ -24,7 +25,7 @@ Pre-request : **AWS account. Git account**.
    7.  Deploying your function.
    8.  Testing the deployed function.
 
-**NOTE**  Steps 2, 5, and 6 will be not mention here. For these steps you can check my another project : [Getting Started with Git-Lab CI-CD FOR AWS](https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
+**NOTE**  Steps 2, 5, 6 and 8 will be not mention here. For these steps you can check my another project : [Getting Started with Git-Lab CI-CD FOR AWS](https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
    
 
 **Creating a project with some pyhton functions**
@@ -104,6 +105,7 @@ Packaging of function5, this function has no third party dependencies included. 
     name: function5
 
 **Note** Following configuration in serverless.yml file will help to deploy every function independently(can be done on function level).
+
     package:
       individually: true   # will help to deploy every function independently.
       exclude:              # excluding files which we don't want to include in package, later include in per function level.
@@ -145,5 +147,5 @@ git push the changes to your GitLab repository and the GitLab build pipeline wil
 
 **For deploying lambda function with api in Aws, check the another project here :[](https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
 
-**EveryOne Loves Lambda
-Go Serverless**
+**EveryOne Loves Lambda**
+**Go Serverless**
