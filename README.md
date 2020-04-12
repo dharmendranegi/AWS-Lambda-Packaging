@@ -132,8 +132,7 @@ You can see difference in packaging with single requirements.txt file for all la
 
 git push the changes to your GitLab repository and the GitLab build pipeline will automatically deploy your function.
 
-**For Getting start with serverless framework check here**:
-![](https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
+**[For Getting start with serverless framework check here]**(https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
 
 **EveryOne Loves Lambda**
 **Go Serverless**
