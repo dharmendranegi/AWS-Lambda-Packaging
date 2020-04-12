@@ -129,6 +129,7 @@ You can see difference in packaging with single requirements.txt file for all la
 
 
 **Deploying your function.**
+
 git push the changes to your GitLab repository and the GitLab build pipeline will automatically deploy your function.
 
 **For deploying lambda function with api in Aws, check the another project here :[](https://github.com/dharmendranegi/-Python-CI-CD-Tutorial-)
