@@ -62,8 +62,6 @@ Packaging of function1, this function has no third party dependencies required. 
     package:
       include:
         - src/function1.py
-      exclude:
-        - requirements.txt
     name: function1
  
 Packaging of function3, this function has third party dependencies included. Here **module** will help you to package function3 with required dependencies.
@@ -73,8 +71,6 @@ Packaging of function3, this function has third party dependencies included. Her
     package:
       include:
         - src/folder2/function3.py
-      exclude:
-        - requirements.txt
     name: function3
 
 
@@ -85,8 +81,6 @@ Packaging of function4, this function has third party dependencies included. Now
     package:
       include:
         - src/folder1/folder1-a/function4.py
-      exclude:
-        - requirements.txt
     name: function4
  
 
@@ -96,8 +90,6 @@ Packaging of function5, this function has no third party dependencies included. 
     package:
       include:
         - src/folder1/function5.py
-      exclude:
-        - requirements.txt
     name: function5
 
 **Note** Following configuration in serverless.yml file will help to deploy every function independently(can be done on function level).

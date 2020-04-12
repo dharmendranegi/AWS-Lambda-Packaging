@@ -3,8 +3,6 @@ module: src/folder1/folder1-a
 package:
   include:
     - src/folder1/folder1-a/function4.py
-  exclude:
-    - requirements.txt
 name: function4
 events:
   - http:

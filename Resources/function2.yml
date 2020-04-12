@@ -2,8 +2,6 @@ handler: src/function2.lambda_handler
 package:
   include:
     - src/function2.py
-  exclude:
-    - requirements.txt
 name: function2
 events:
   - http:
